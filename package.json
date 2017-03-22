@@ -1,0 +1,17 @@
+{
+  "name": "generator-az-iot-gw-module-js",
+  "version": "0.1.0",
+  "description": "Scaffolding tool for JS sample module of Azure IoT Gateway.",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "Azure IoT Gateway",
+    "Module",
+    "Javascript"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^1.0.0"
+  }
+}
