@@ -1,16 +1,20 @@
 {
-  "name": "generator-az-iot-gw-module-js",
+  "name": "generator-az-iot-gw-module",
   "version": "0.1.0",
-  "description": "Scaffolding tool for JS sample module of Azure IoT Gateway.",
+  "description": "Scaffolding tool for  module project of Azure IoT Gateway.",
   "files": [
     "generators"
   ],
   "keywords": [
     "yeoman-generator",
     "Azure IoT Gateway",
-    "Module",
-    "Javascript"
+    "Module"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Azure/generator-az-iot-gw-module"
+  },
+  "license": "MIT",
   "dependencies": {
     "yeoman-generator": "^1.0.0"
   }
