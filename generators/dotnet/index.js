@@ -1,14 +1,15 @@
 'use strict';
 
-module.exports = class extends DotNetModuleGenerator {
-  constructor() {
-    
+const Generator = require('yeoman-generator');
+
+module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
   }
   
   prompting() {
   }
 
   writing() {
-    
   }
 };
