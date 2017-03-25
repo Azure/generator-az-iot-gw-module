@@ -1,65 +1,86 @@
 'use strict';
-
+const _ = require('lodash');
+const extend = _.merge;
 const Generator = require('yeoman-generator');
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
-    super(args, opts);
+  constructor(args, options) {
+    super(args, options);
 
-    this.name = '';
-    this.version = '';
-    this.desc = '';
-    this.author = '';
-    this.license = '';
+    this.option('name', {
+      type: String,
+      required: true,
+      desc: 'Module project name'
+    });
+
+    this.option('description', {
+      type: String,
+      required: false,
+      desc: 'Description of module project.'
+    });
+
+    this.option('authorName', {
+      type: String,
+      required: false,
+      desc: 'Author\'s Name'
+    });
   }
 
   initializing() {
-    this.composeWith(require.resolve('../shared'));
+    // Refresh the current package content to latest one.
+    const currentPkg = this.fs.readJSON(this.destinationPath('package.json'), {});
+
+    this.props = {
+      name: currentPkg.name || _.kebabCase(this.options.name),
+      description: currentPkg.descrption || this.options.description,
+      version: currentPkg.version || '0.0.0',
+      authorName: this.options.authorName,
+      keywords: currentPkg.keywords || [],
+      license: currentPkg.license,
+      devDependencies: currentPkg.devDependencies || {}
+    };
   }
 
   prompting() {
-    return this.prompt([{
-      type: 'intput',
-      name: 'name',
-      message: 'Name of your Azure IoT Gateway module project',
-      default: this.appname // default to current folder name
-    }, {
-      type: 'intput',
-      name: 'version',
-      message: 'Version of js module project.',
-      default: '0.1.0' // default to current folder name
-    }, {
-      type: 'intput',
-      name: 'desc',
-      message: 'Description of your project.',
-      default: this.appname // default to current folder name
-    }, {
-      type: 'intput',
-      name: 'author',
-      message: 'Author name of your project.',
-      default: this.appname // default to current folder name
-    }, {
-      type: 'intput',
-      name: 'license',
-      message: 'License type(MIT/BSD) of your project.',
-      default: ''
-    }]).then((answers) => {
-      this.name = answers.name;
-      this.version = answers.version;
-      this.desc = answers.desc;
-      this.author = answers.author;
-      this.license = answers.license;
-    })
+    const prompts = [{
+      type: 'input',
+      name: 'keywords',
+      message: 'Package keywords (comma to split)',
+      when: !this.props.keywords || this.props.keywords.length == 0,
+      filter(words) {
+        return words.split(/\s*,\s*/g);
+      }
+    }];
+
+    return this.prompt(prompts).then(props => {
+      this.props = extend(this.props, props);
+    });
+  }
+
+  configuring() {}
+
+  default () {
+    this.composeWith(require.resolve('generator-license/app'), {
+      name: this.props.authorName
+    });
+
+    this.composeWith(require.resolve('../shared'));
   }
 
   writing() {
-    this._copyStaticFiles();
-
-    this._copyDynamicFiles();
+    this._generateDynamicFiles();
+    this._generateStaticFiles();
   }
 
-  // Private Methods
-  _copyStaticFiles() {
+  conflicts() {}
+
+  install() {}
+
+  end() {
+    this.log('Thanks for using node generator for azure iot gateway.');
+  }
+
+  _generateStaticFiles() {
     this.fs.copy(
       this.templatePath('modules/printer.js'),
       this.destinationPath('modules/printer.js')
@@ -86,24 +107,32 @@ module.exports = class extends Generator {
     );
   }
 
-  _copyDynamicFiles() {
-    this.log('this.author: ' + this.author);
+  _generateDynamicFiles() {
+    // package.json
+    this.fs.writeJSON(this.destinationPath('package.json'), {
+      name: this.props.name,
+      version: this.props.version,
+      description: this.props.description,
+      author: {
+        name: this.props.authorName
+      },
+      license: this.props.license,
+      main: 'app.js',
+      scripts: {
+        start: 'node app.js'
+      },
+      keywords: _.uniq(this.props.keywords || []),
+      devDependencies: extend(
+        this.props.devDependencies, {
+          'azure-iot-gateway': '~1.0.0'
+        })
+    });
 
-    this.fs.copyTpl(
-      this.templatePath('package.json'),
-      this.destinationPath('package.json'), {
-        name: this.name,
-        version: this.version,
-        desc: this.desc,
-        author: this.author,
-        license: this.license
-      }
-    );
-
+    // README.md
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'), {
-        name: this.name
+        name: this.props.name
       }
     );
   }

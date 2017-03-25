@@ -20,6 +20,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "generator-license": "^5.1.0",
+    "inquirer-npm-name": "^2.0.0",
+    "lodash": "^4.17.4",
     "yeoman-generator": "^1.0.0"
   }
 }

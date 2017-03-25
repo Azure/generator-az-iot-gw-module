@@ -6,9 +6,6 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
   }
-  
-  prompting() {
-  }
 
   writing() {
     this.fs.copy(
