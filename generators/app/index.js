@@ -20,16 +20,16 @@ module.exports = class extends Generator {
       type: 'list',
       name: 'moduleType',
       message: 'Choose the language for your project',
-      choices: ['js', 'dotnet', 'java'],
-      default: 'js' // default to current folder name
+      choices: ['node', 'net', 'java'],
+      default: 'node' // default to current folder name
     }]).then((answers) => {
       this.name = answers.name;
       this.moduleType = answers.moduleType;
 
-      if (this.moduleType == 'js') {
-        this.composeWith(require.resolve('../js'));
-      } else if (this.moduleType == 'dotnet') {
-        this.composeWith(require.resolve('../dotnet'));
+      if (this.moduleType == 'node') {
+        this.composeWith(require.resolve('../node'));
+      } else if (this.moduleType == 'net') {
+        this.composeWith(require.resolve('../net'));
       }
     });
   }

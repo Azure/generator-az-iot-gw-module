@@ -1,14 +1,18 @@
 {
   "name": "generator-az-iot-gw-module",
   "version": "0.1.0",
-  "description": "Scaffolding tool for  module project of Azure IoT Gateway.",
+  "description": "Create a Node module for azure iot gateway.",
   "files": [
     "generators"
   ],
   "keywords": [
     "yeoman-generator",
-    "Azure IoT Gateway",
-    "Module"
+    "scaffold",
+    "azure",
+    "iot",
+    "gateway",
+    "module",
+    "node"
   ],
   "repository": {
     "type": "git",
