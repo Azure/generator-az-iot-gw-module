@@ -29,3 +29,7 @@ Once the project is scaffolded, at the root folder run:
 $npm install
 $npm start
 ```
+
+### Further Steps
+1. Modify the source code of `printer.js` and `sensor.js` to provide more features.
+2. Refer to [NODE Module Sample](https://github.com/Azure-Samples/azure-iot-gateway-samples/tree/master/js) to learn how to connect to [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/).
