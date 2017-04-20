@@ -82,28 +82,23 @@ module.exports = class extends Generator {
 
   _generateStaticFiles() {
     this.fs.copy(
-      this.templatePath('modules/printer.js'),
-      this.destinationPath('modules/printer.js')
+      this.templatePath('printer.js'),
+      this.destinationPath('printer.js')
     );
 
     this.fs.copy(
-      this.templatePath('modules/sensor.js'),
-      this.destinationPath('modules/sensor.js')
+      this.templatePath('sensor.js'),
+      this.destinationPath('sensor.js')
     );
 
     this.fs.copy(
-      this.templatePath('app.js'),
-      this.destinationPath('app.js')
+      this.templatePath('bin/gw.js'),
+      this.destinationPath('bin/gw.js')
     );
 
     this.fs.copy(
       this.templatePath('gw.config.json'),
       this.destinationPath('gw.config.json')
-    );
-
-    this.fs.copy(
-      this.templatePath('.npmrc'),
-      this.destinationPath('.npmrc')
     );
   }
 
@@ -117,14 +112,14 @@ module.exports = class extends Generator {
         name: this.props.authorName
       },
       license: this.props.license,
-      main: 'app.js',
+      main: './bin/gw.js',
       scripts: {
-        start: 'node app.js'
+        start: 'node ./bin/gw.js'
       },
       keywords: _.uniq(this.props.keywords || []),
       devDependencies: extend(
         this.props.devDependencies, {
-          'azure-iot-gateway': '~1.0.0'
+          'azure-iot-gateway': '~1.0.4'
         })
     });
 

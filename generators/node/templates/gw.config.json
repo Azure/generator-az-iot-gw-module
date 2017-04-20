@@ -8,7 +8,7 @@
       "loader": {
         "name": "node",
         "entrypoint": {
-          "main.path": "modules/printer.js"
+          "main.path": "printer.js"
         }
       },
       "args": null
@@ -18,7 +18,7 @@
       "loader": {
         "name": "node",
         "entrypoint": {
-          "main.path": "modules/sensor.js"
+          "main.path": "sensor.js"
         }
       },
       "args": null

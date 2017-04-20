@@ -51,7 +51,7 @@ module.exports = class extends Generator {
       type: 'list',
       name: 'moduleType',
       message: 'Choose the module type(language) for your project.',
-      choices: ['node', 'net', 'java'],
+      choices: ['node'],
       default: 'node',
     }];
 
