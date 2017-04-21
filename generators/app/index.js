@@ -44,13 +44,13 @@ module.exports = class extends Generator {
     }, {
       type: 'input',
       name: 'authorName',
-      message: 'Author\'s Name',
+      message: 'Author\'s name.',
       when: !this.props.authorName,
       store: true
     }, {
       type: 'list',
       name: 'moduleType',
-      message: 'Choose the module type(language) for your project.',
+      message: 'Choose the module language for your project.',
       choices: ['node'],
       default: 'node',
     }];

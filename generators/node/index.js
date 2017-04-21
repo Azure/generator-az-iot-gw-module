@@ -10,7 +10,7 @@ module.exports = class extends Generator {
     this.option('name', {
       type: String,
       required: true,
-      desc: 'Module project name'
+      desc: 'Module project name.'
     });
 
     this.option('description', {
@@ -22,7 +22,7 @@ module.exports = class extends Generator {
     this.option('authorName', {
       type: String,
       required: false,
-      desc: 'Author\'s Name'
+      desc: 'Author\'s name.'
     });
   }
 
@@ -77,7 +77,6 @@ module.exports = class extends Generator {
   install() {}
 
   end() {
-    this.log('Thanks for using node generator for azure iot gateway.');
   }
 
   _generateStaticFiles() {
