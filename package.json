@@ -1,7 +1,11 @@
 {
   "name": "generator-az-iot-gw-module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a Node module for azure iot gateway.",
+  "author": {
+    "name": "Microsoft Corporation",
+    "url": "https://github.com/Azure/generator-az-iot-gw-module"
+  },
   "files": [
     "generators"
   ],
@@ -24,5 +28,8 @@
     "inquirer-npm-name": "^2.0.0",
     "lodash": "^4.17.4",
     "yeoman-generator": "^1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Azure/generator-az-iot-gw-module/issues"
   }
 }
