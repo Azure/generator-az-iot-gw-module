@@ -9,14 +9,6 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 1. Install latest [Node LTS](https://nodejs.org).
 2. `npm install -g yo`.
 
-## Install(Temporary)
-```
-$git clone https://github.com/Azure/generator-az-iot-gw-module
-$cd generator-az-iot-gw-module
-$npm link
-```
-*Note that once this generator is released publically, the install will be changed to: `npm install -g generator-az-iot-gw-module`.*
-
 ## Usage
 ```
 $yo az-iot-gw-module
