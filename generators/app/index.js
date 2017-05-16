@@ -102,6 +102,6 @@ module.exports = class extends Generator {
   }
 
   end() {
-    this.log('Thanks for using module generator for azure iot gateway.');
+    this.log('Thanks for using module generator for azure iot edge.');
   }
 };

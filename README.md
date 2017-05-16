@@ -2,8 +2,8 @@
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-# Azure IoT Gateway Module Generator
-`generator-az-iot-gw-module` creates a base template to start a new gateway module in Node.js.
+# Azure IoT Edge Module Generator
+`generator-az-iot-gw-module` creates a base template to start a new edge module in Node.js.
 
 ## Prerequisites
 1. Install latest [Node LTS](https://nodejs.org).
@@ -16,7 +16,7 @@ $yo az-iot-gw-module
 ```
 *Note that this template will generate files in the current directory, so be sure always to run it against a new directory*
 
-### Running module(s) on gateway
+### Running module(s) on edge
 Once the project is scaffolded, at the root folder run:
 ```
 $npm install
