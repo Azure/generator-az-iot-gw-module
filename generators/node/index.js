@@ -118,7 +118,7 @@ module.exports = class extends Generator {
       keywords: _.uniq(this.props.keywords || []),
       devDependencies: extend(
         this.props.devDependencies, {
-          'azure-iot-gateway': '~1.1.1'
+          'azure-iot-gateway': '~1.1.3'
         })
     });
 
