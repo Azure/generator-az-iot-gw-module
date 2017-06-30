@@ -81,11 +81,9 @@ module.exports = class extends Generator {
 
       case 'net':
       throw '.Net module type is not supported yet.'
-      break;
 
       case 'java':
       throw 'Java module type is not supported yet.'
-      break;
 
       default:
       throw 'Invalid module type.';

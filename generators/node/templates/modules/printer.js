@@ -11,6 +11,9 @@ module.exports = {
     return true;
   },
 
+  start: function () {
+  },
+
   receive: function (message) {
     console.log(`printer.receive - ${message.content.join(', ')}`);
   },

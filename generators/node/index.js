@@ -81,18 +81,18 @@ module.exports = class extends Generator {
 
   _generateStaticFiles() {
     this.fs.copy(
-      this.templatePath('printer.js'),
-      this.destinationPath('printer.js')
+      this.templatePath('modules/printer.js'),
+      this.destinationPath('modules/printer.js')
     );
 
     this.fs.copy(
-      this.templatePath('sensor.js'),
-      this.destinationPath('sensor.js')
+      this.templatePath('modules/sensor.js'),
+      this.destinationPath('modules/sensor.js')
     );
 
     this.fs.copy(
-      this.templatePath('bin/gw.js'),
-      this.destinationPath('bin/gw.js')
+      this.templatePath('app.js'),
+      this.destinationPath('app.js')
     );
 
     this.fs.copy(
@@ -111,9 +111,9 @@ module.exports = class extends Generator {
         name: this.props.authorName
       },
       license: this.props.license,
-      main: './bin/gw.js',
+      main: 'app.js',
       scripts: {
-        start: 'node ./bin/gw.js'
+        start: 'node app.js'
       },
       keywords: _.uniq(this.props.keywords || []),
       devDependencies: extend(
