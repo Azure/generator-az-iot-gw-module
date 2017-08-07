@@ -7,7 +7,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## Prerequisites
 1. Install latest [Node LTS](https://nodejs.org).
-2. `npm install -g yo`.
+2. `npm install -g yo`
 3. `npm install -g generator-az-iot-gw-module`
 
 ## Usage
